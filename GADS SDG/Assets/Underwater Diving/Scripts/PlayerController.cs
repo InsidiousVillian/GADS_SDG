@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour{
 
@@ -77,7 +78,9 @@ public class PlayerController : MonoBehaviour{
 
 	public void hurt(){
 		if(!rushing){
-			gameObject.GetComponent<Animator> ().Play ("PlayerHurt");		
+			gameObject.GetComponent<Animator>().Play("PlayerHurt");
+			Destroy(gameObject);
+			SceneManager.LoadScene("DeathScreen");
 		}
 
 	}
